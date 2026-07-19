@@ -1,0 +1,22 @@
+const int led = 11:
+float pot = A0;
+
+float state = 0;
+float digvalue = 0;
+void setup(){
+  
+  pinMode(led, OUTPUT);
+  pinMode(pot, INPUT);
+  
+  Serial.begin(9600);
+}
+void loop(){
+  state = analogRead(pot);
+  digvalue = map(state, 0,1023,0,255);
+  digitalWrite(led, digvalue);
+  Serial.println("Potentionmeter Value");
+  Serial.println(state);
+  Serial.println("LED Brightness");
+  Serial.println(digvalue); 
+  delay (500);
+  }
